@@ -1,0 +1,116 @@
+/* After Hours Lab · Annika Futch
+   Colors and fonts live here. Change a hex once and it changes everywhere. */
+:root{
+  --ink:#0B0A0F; --paper:#EFEDE8; --pink:#FF0074; --uv:#8B3DFF; --uv-mark:#B383F6;
+  --green:#7CFF6B; --lilac:#C7A6FF; --prompt:#8F8A96; --soft:#C9C4CF; --hair:#2A2533;
+  --anton:'Anton',Impact,sans-serif; --mono:'Courier Prime','Courier New',monospace;
+  --vt:'VT323',monospace; --scrawl:'Herr Von Muellerhoff',cursive; --note:'Zeyada',cursive;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--ink);color:var(--paper)}
+body{font-family:var(--mono);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--pink)}
+img{display:block}
+p,h1,h2,h3{margin:0;font-weight:400}
+
+/* ---------- type styles (same names as the build guide) ---------- */
+.nav-t{font-family:var(--anton);font-size:20px;line-height:24px;text-transform:uppercase;letter-spacing:.5px}
+.h1{font-family:var(--anton);font-size:84px;line-height:84px;text-transform:uppercase}
+.h2{font-family:var(--anton);font-size:56px;line-height:56px;text-transform:uppercase}
+.h3{font-family:var(--anton);font-size:28px;line-height:30px;text-transform:uppercase}
+.stat{font-family:var(--anton);font-size:52px;line-height:52px}
+.body{font-size:16px;line-height:25px}
+.small{font-size:13px;line-height:19px}
+.label{font-size:12px;line-height:18px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.term{font-family:var(--vt);font-size:22px;line-height:26px}
+.note{font-family:var(--note);font-size:30px;line-height:34px;color:var(--pink)}
+.scrawl{display:inline-block;width:0;overflow:visible;font-family:var(--scrawl);text-transform:none;color:var(--pink);font-size:1.78em;line-height:0;margin-left:-.04em;position:relative;top:.06em;white-space:nowrap}
+.mark{background:linear-gradient(transparent 50%,var(--uv-mark) 50%,var(--uv-mark) 90%,transparent 90%)}
+.pink{color:var(--pink)} .green{color:var(--green)} .lilac{color:var(--lilac)} .prompt{color:var(--prompt)} .soft{color:var(--soft)} .ink{color:var(--ink)}
+
+/* ---------- bands and the 1280 stage ---------- */
+.band{position:relative;overflow:hidden;background-color:var(--ink)}
+.band.dark{background-image:url(../assets/grain-on-black.png);background-size:1280px auto}
+.band.paper{background-color:var(--paper);color:var(--ink);background-image:url(../assets/grain-on-paper.png);background-size:1280px auto}
+.stage{position:relative;width:1280px;margin:0 auto;height:var(--h)}
+.pos{position:absolute;left:var(--x);top:var(--y);width:var(--w,auto)}
+.rot{transform:rotate(var(--r))}
+.seam{position:relative;z-index:5;height:3px;background:var(--uv);box-shadow:0 0 14px 2px var(--uv)}
+
+/* ---------- nav and footer ---------- */
+.nav{position:absolute;left:0;right:0;top:0;height:72px;border-bottom:1px solid var(--hair);z-index:4}
+.nav .in{width:1280px;margin:0 auto;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 64px}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:30px;align-items:center}
+.btn{display:inline-block;width:116px;text-align:center;padding:6px 0;background:var(--pink);color:var(--ink)}
+.btn:hover{color:var(--paper)}
+.nav.on-paper{color:var(--ink);border-bottom-color:var(--ink)}
+.nav.on-paper .btn{background:var(--ink);color:var(--paper)}
+footer{border-top:1px solid var(--hair);background:var(--ink)}
+footer .in{width:1280px;margin:0 auto;height:100px;display:flex;align-items:center;justify-content:space-between;padding:0 64px}
+footer ul{list-style:none;margin:0;padding:0;display:flex;gap:30px}
+
+/* ---------- components ---------- */
+.terminal{background:var(--ink);border:1px solid var(--green);padding:12px 16px;box-shadow:8px 8px 0 var(--pink)}
+.hud{background:var(--ink);border:1.5px solid var(--paper);min-height:110px}
+.hud>.bar{background:var(--paper);color:var(--ink);padding:3px 12px}
+.hud>.txt{padding:8px 12px}
+.hud.pinkb{border-color:var(--pink)} .hud.pinkb>.bar{background:var(--pink)}
+.hud.uvb{border-color:var(--uv)} .hud.uvb>.bar{background:var(--uv)}
+.monologue{border:1px solid var(--uv);background:var(--ink);padding:10px 16px}
+.monologue p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.statbox{border-top:2px solid currentColor;padding-top:6px}
+.chart{border:2px solid var(--ink);padding:12px 12px 8px}
+.card{display:block;border:1.5px solid var(--paper);background:var(--ink);height:340px;padding:18px;position:relative}
+.card .ball{position:absolute;right:18px;top:14px;width:92px}
+.card .h3{margin-top:84px;min-height:60px}
+.card .small{margin-top:24px;color:var(--soft)}
+.card .open{position:absolute;left:18px;bottom:18px;color:var(--green)}
+.card:hover{border-color:var(--pink)}
+.card:hover .h3{color:var(--pink)}
+.tag{background:var(--paper);color:var(--ink);padding:0 10px}
+.metric{border:2px solid var(--pink);background:var(--ink);height:150px;padding:18px}
+.step{border:2px solid var(--ink);height:130px;padding:14px 16px}
+.step.out{border-color:var(--pink)}
+.photo{width:120px;height:150px;object-fit:cover;filter:grayscale(1) contrast(1.3)}
+.tape{position:absolute;width:90px;height:26px;background:rgba(255,0,116,.45)}
+
+/* ---------- laptop: scale the 1280 design to fit (set by the script at the bottom of each page) ---------- */
+.stage,.nav .in,footer .in{zoom:var(--z,1)}
+
+/* ---------- phone and small tablet ---------- */
+@media (max-width:820px){
+  .stage,.nav .in,footer .in{zoom:1;width:auto}
+  .stage{height:auto;padding:40px 20px 48px;display:flex;flex-direction:column;gap:18px}
+  .pos{position:static;width:auto!important;max-width:100%}
+  .rot{transform:none}
+  .deco{display:none!important}
+  .h1{font-size:46px;line-height:48px}
+  .h2{font-size:38px;line-height:40px}
+  .stat{font-size:40px;line-height:42px}
+  .nav{position:relative}
+  .nav .in{height:auto;padding:14px 20px;flex-wrap:wrap;gap:10px}
+  .nav ul{gap:16px}
+  .nav-t{font-size:17px}
+  .stage.first{padding-top:28px}
+  .subj{width:70%;max-width:320px;margin:0 auto}
+  .mob-img{display:block!important;width:70%!important;max-width:320px;margin:0 auto}
+  .grid2m{display:grid!important;grid-template-columns:1fr 1fr!important;grid-auto-rows:auto!important;gap:16px!important}
+  img.pos{width:100%!important;height:auto}
+  .steps .step{width:100%}
+  .terminal .term{font-size:18px;line-height:22px}
+  .metric{height:auto}
+  .metric .label{margin-top:14px!important}
+  .stackm{display:flex!important;flex-direction:column;gap:14px}
+  .cards{display:grid!important;grid-template-columns:1fr!important;gap:16px}
+  .card{height:auto;min-height:220px}
+  .card .h3{margin-top:70px}
+  .card .open{position:static;margin-top:18px}
+  .monologue p{white-space:normal}
+  .terminal{box-shadow:6px 6px 0 var(--pink)}
+  footer .in{height:auto;padding:24px 20px;flex-direction:column;align-items:flex-start;gap:14px}
+  .steps{display:flex!important;flex-direction:column;gap:12px}
+  .steps .arrow{display:none}
+  .step{height:auto}
+  .scrawl{display:block;width:auto;font-size:1.9em;line-height:.7;margin:-.05em 0 .15em 1.4em;top:0}
+}

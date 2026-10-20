@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIG. 01 · The Data Room Engine · Annika Futch</title>
+<meta name="description" content="A local AI system that reads 16,000+ documents with every number traceable to its source cell.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=Herr+Von+Muellerhoff&family=VT323&family=Zeyada&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===================== HERO (paper) ===================== -->
+<header class="band paper">
+  <nav class="nav on-paper">
+    <div class="in">
+      <a class="nav-t" href="index.html">Annika Futch</a>
+      <ul>
+        <li><a class="nav-t" href="index.html#work">Work</a></li>
+        <li><a class="nav-t" href="index.html#lab-notes">Lab notes</a></li>
+        <li><a class="nav-t" href="index.html#about">About</a></li>
+        <li><a class="nav-t btn" href="RESUME-LINK-HERE" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="stage first" style="--h:800px">
+    <a class="pos label" href="index.html#work" style="--x:64px;--y:100px;--w:200px">← All work</a>
+    <p class="pos label pink" style="--x:64px;--y:140px;--w:600px">FIG. 01 · Systems + governance · May 2025–now</p>
+    <h1 class="pos h1" style="--x:64px;--y:168px;--w:640px">The Data Room Engine</h1>
+    <p class="pos body" style="--x:64px;--y:360px;--w:600px">146 spreadsheet layouts. 15 companies. Zero company-specific code.</p>
+    <div class="pos grid2m" style="--x:64px;--y:440px;--w:616px;display:grid;grid-template-columns:296px 296px;column-gap:24px;grid-auto-rows:96px">
+      <div class="statbox"><p class="label pink" style="margin-top:2px">Role</p><p class="small" style="margin-top:4px">AI Systems and Governance Lead, Rockmont Partners</p></div>
+      <div class="statbox"><p class="label pink" style="margin-top:2px">Timeline</p><p class="small" style="margin-top:4px">May 2025 to present</p></div>
+      <div class="statbox"><p class="label pink" style="margin-top:2px">Tools</p><p class="small" style="margin-top:4px">Python, local LLMs, config-driven extraction</p></div>
+      <div class="statbox"><p class="label pink" style="margin-top:2px">Constraint</p><p class="small" style="margin-top:4px">No data leaves the building</p></div>
+    </div>
+    <img class="pos" src="assets/fig01-trace.png" alt="A spreadsheet with client names redacted; one cell is circled in pink and traced to its source" style="--x:760px;--y:110px;--w:456px">
+    <p class="pos term pink" style="--x:790px;--y:640px;--w:420px">every number → its source cell</p>
+    <p class="pos note rot" style="--x:760px;--y:690px;--w:420px;--r:-3deg">client names redacted, obviously ♡</p>
+    <img class="pos deco" src="assets/disco-green.png" alt="" style="--x:1130px;--y:676px;--w:86px">
+  </div>
+</header>
+<div class="seam"></div>
+
+<!-- ===================== THE PROBLEM (black) ===================== -->
+<section class="band dark">
+  <div class="stage" style="--h:520px">
+    <img class="pos deco" src="assets/uv-haze.png" alt="" style="--x:700px;--y:0px;--w:640px">
+    <h2 class="pos h2" style="--x:64px;--y:64px;--w:520px">The problem</h2>
+    <p class="pos body" style="--x:64px;--y:140px;--w:520px">Rockmont's data room held 16,000+ documents. Every portfolio company reported in its own spreadsheet format, so monitoring them meant opening files one by one.</p>
+    <p class="pos body" style="--x:64px;--y:262px;--w:520px">Cloud AI tools were off the table. Private-company financials cannot leave the firm, so the system had to run entirely on local hardware.</p>
+    <p class="pos note rot" style="--x:64px;--y:380px;--w:560px;--r:-3deg">the constraint that shaped every design decision</p>
+    <div class="pos terminal" style="--x:680px;--y:80px;--w:536px">
+      <p class="term prompt">$ tree ./data_room</p>
+      <p class="term green">├── co_01_████/ board_pack.xlsx</p>
+      <p class="term green">├── co_02_████/ monthly_kpis.xlsx</p>
+      <p class="term green">├── co_03_████/ q2_financials.xlsx</p>
+      <p class="term green">├── ...</p>
+      <p class="term green">└── 16,000+ files · 146 layouts</p>
+      <p class="term prompt">$ upload --cloud</p>
+      <p class="term pink">&gt; DENIED. data stays local.</p>
+    </div>
+  </div>
+</section>
+<div class="seam"></div>
+
+<!-- ===================== THE APPROACH (paper) ===================== -->
+<section class="band paper">
+  <div class="stage" style="--h:580px">
+    <h2 class="pos h2" style="--x:64px;--y:64px;--w:600px">The approach</h2>
+    <p class="pos label" style="--x:64px;--y:136px;--w:700px"><span class="mark">Governance layer · local only · source-traceable</span></p>
+    <div class="pos steps" style="--x:64px;--y:190px;--w:1132px;display:grid;grid-template-columns:250px 44px 250px 44px 250px 44px 250px;align-items:center">
+      <div class="step"><p class="h3">Input</p><p class="small" style="margin-top:12px">16,000+ documents</p></div>
+      <p class="h3 arrow" style="text-align:center">→</p>
+      <div class="step"><p class="h3">Discover</p><p class="small" style="margin-top:12px">Local LLM reads new layouts</p></div>
+      <p class="h3 arrow" style="text-align:center">→</p>
+      <div class="step"><p class="h3">Extract</p><p class="small" style="margin-top:12px">One engine, 146 configs</p></div>
+      <p class="h3 arrow" style="text-align:center">→</p>
+      <div class="step out"><p class="h3 pink">Output</p><p class="small" style="margin-top:12px">Data points linked to source cells</p></div>
+    </div>
+    <p class="pos body" style="--x:64px;--y:360px;--w:760px">Instead of writing code per company, each layout is described in a small config file. One engine reads them all. Every extracted number keeps a pointer back to the exact cell it came from, so any figure can be audited in seconds.</p>
+    <img class="pos deco" src="assets/halftone-blobs-black.png" alt="" style="--x:960px;--y:340px;--w:300px">
+  </div>
+</section>
+<div class="seam"></div>
+
+<!-- ===================== RESULTS (black) ===================== -->
+<section class="band dark">
+  <div class="stage" style="--h:660px">
+    <img class="pos deco" src="assets/lasers-left.png" alt="" style="--x:0px;--y:0px;--w:1280px">
+    <h2 class="pos h2" style="--x:64px;--y:64px;--w:600px">Results</h2>
+    <div class="pos grid2m" style="--x:64px;--y:150px;--w:1152px;display:grid;grid-template-columns:repeat(4,270px);gap:24px">
+      <div class="metric"><p class="stat">162K+</p><p class="label" style="margin-top:38px">Traceable data points</p></div>
+      <div class="metric"><p class="stat">146</p><p class="label" style="margin-top:38px">Layouts, no custom code</p></div>
+      <div class="metric"><p class="stat">15</p><p class="label" style="margin-top:38px">Portfolio companies</p></div>
+      <div class="metric"><p class="stat">1</p><p class="label" style="margin-top:38px">AI use policy, drafted</p></div>
+    </div>
+    <img class="pos" src="assets/fig01-output-redacted.png" alt="Extracted output table with company names and values redacted and a green source-cell column" style="--x:64px;--y:340px;--w:652px">
+    <p class="pos small soft" style="--x:760px;--y:360px;--w:420px">FIG. 01b · Extracted output. Company names and values redacted.</p>
+    <p class="pos note rot" style="--x:760px;--y:420px;--w:440px;--r:-3deg">the green column is the whole point</p>
+  </div>
+</section>
+<div class="seam"></div>
+
+<!-- ===================== WHAT'S NEXT (paper) ===================== -->
+<section class="band paper">
+  <div class="stage" style="--h:280px">
+    <p class="pos h3" style="--x:64px;--y:44px;--w:500px">What I'd do next</p>
+    <p class="pos body" style="--x:64px;--y:88px;--w:560px">Add board-deck ingestion, and a human review queue for low-confidence extractions so a person signs off before any number reaches a report.</p>
+    <a class="pos h2" href="index.html#work" style="--x:680px;--y:44px;--w:536px;text-align:right">FIG. 02 Thinking About Thinking →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <p class="h3">Research, policy, applied AI. xoxo, the lab</p>
+    <ul>
+      <li><a class="nav-t" href="mailto:EMAIL-HERE">Email</a></li>
+      <li><a class="nav-t" href="LINKEDIN-LINK-HERE" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a class="nav-t pink" href="RESUME-LINK-HERE" target="_blank" rel="noopener">Resume ↓</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  function fit(){var w=window.innerWidth;document.documentElement.style.setProperty('--z',(w>820&&w<1280)?(w/1280):1)}
+  fit();window.addEventListener('resize',fit);
+</script>
+</body>
+</html>
